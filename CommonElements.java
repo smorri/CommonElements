@@ -1,5 +1,3 @@
-package com.homeworkhelp.commonelems;
-
 import java.util.Arrays;
 
 /** ========================================================================================================
@@ -18,19 +16,19 @@ import java.util.Arrays;
  * sets in the collection. This can only be achieved if each element in the non-query collections only
  * participates in at most 1 comparison (with a few exceptions)
  * 
- * - It should be able to accept as input 0 to k collections, stored as simple arrays. We’re restricting
- * 	 the data structure to arrays since we haven’t covered higher order data structures yet.
+ * - It should be able to accept as input 0 to k collections, stored as simple arrays. Weâ€™re restricting
+ * 	 the data structure to arrays since we havenâ€™t covered higher order data structures yet.
  * - The elements of the collections should all be of type Comparable, and they should all be derived from
  *   the same base class (not counting the Object class). Implementation of the Comparable interface is
  *   necessary since the elements must be compared to each other in order to determine commonality. They
  *   must all be derived from the same base class since comparisons between different data types is
  *   undefined.
- * - Duplicate elements should be allowed; e.g., if there are M instances of the value, “XYZ”, in all the
- *   input collections, there should be M instances of the value, “XYZ”, in the collection of common 
+ * - Duplicate elements should be allowed; e.g., if there are M instances of the value, â€œXYZâ€, in all the
+ *   input collections, there should be M instances of the value, â€œXYZâ€, in the collection of common 
  *   elements.
  * - The collections should be allowed to be of varying lengths; i.e., some collections may have more
  *   items than others.
- * - One of the collections must be designated as the “query” collection, which is the collection
+ * - One of the collections must be designated as the â€œqueryâ€ collection, which is the collection
  *   containing the elements to which the elements in the other collections are compared.
  * - The total number of element comparisons performed should be less than the value for the quadratic
  *   solution described above. That is, the total number of comparisons in the worst case should be less
@@ -54,13 +52,13 @@ import java.util.Arrays;
  *   array will support arrays of varying sizes provided it is initialized without first specifying the
  *   two dimensions. For example:
  *   
- *   		Comparable[][] collections = {{“A”}, {“A”, “B”}, {“A”, “B”, “C”}};
+ *   		Comparable[][] collections = {{â€œAâ€}, {â€œAâ€, â€œBâ€}, {â€œAâ€, â€œBâ€, â€œCâ€}};
  *   
  *   results in an array of 3 Comparable arrays of varying sizes. The following syntax also works:
  *   
- *   		Comparable[] col_1 = {“A”};
- *   		Comparable[] col_2 = {“A”, “B”};
- *   		Comparable[] col_3 = {“A”, “B”, “C”};
+ *   		Comparable[] col_1 = {â€œAâ€};
+ *   		Comparable[] col_2 = {â€œAâ€, â€œBâ€};
+ *   		Comparable[] col_3 = {â€œAâ€, â€œBâ€, â€œCâ€};
  *   		Comparable[][] collections = {col_1, col_2, col_3};
  *   
  * - The value returned by your findCommonElements method should be a collection of Comparable elements
@@ -97,7 +95,7 @@ public class CommonElements {
 	
 	private int query_set_size,
 				num_comparisons;
-	private final String EMPTY = "Ø";
+	private final String EMPTY = "Ã˜";
 	
 	/** =============================================================================================== **/
 	/** ======================================== CONSTRUCTORS ========================================= **/
@@ -181,14 +179,14 @@ public class CommonElements {
 	 * binary search to restrict our search size.
 	 * 
 	 * @param collections	a collection of Sets to perform an intersection on
-	 * @return				either the empty set (since the subset { Ø } is common in all Sets) if no
-	 * 					    other common elements are discovered -OR- the Query Set, q UNION { Ø }
+	 * @return				either the empty set (since the subset { Ã˜ } is common in all Sets) if no
+	 * 					    other common elements are discovered -OR- the Query Set, q UNION { Ã˜ }
 	 */
 	@SuppressWarnings("rawtypes")
 	private Comparable[] intersection(final Comparable[][] collections){
 		/* ------------------------------------------------------------------------------------------------
 		 * [0] EMPTY SET
-		 * If our Query Set is the Empty Set { Ø }, then this is the smallest set that exists in the
+		 * If our Query Set is the Empty Set { Ã˜ }, then this is the smallest set that exists in the
 		 * collection. The Empty Set is always a subset of any Set.
 		 * ------------------------------------------------------------------------------------------------
 		 */
@@ -209,7 +207,7 @@ public class CommonElements {
 				
 		for(; i < num_sets; i++){
 			// We have encountered a Set that has NO commonalities with the Query Set. Therefore, we should
-			// stop our search, and return the empty set { Ø }
+			// stop our search, and return the empty set { Ã˜ }
 			if( !binarySearch(collections[i]) ){
 				System.out.println("[COMMON ELEMENTS] = { " + EMPTY + " }");
 				return EMPTY_SET;
